@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+import Button from "./components/Button";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1> Fetch data from an api in react </h1> {console.log(items)}
+        <Button>Normal Button</Button>
+        <Button primary>Primary Button</Button>
       </div>
     );
   }
