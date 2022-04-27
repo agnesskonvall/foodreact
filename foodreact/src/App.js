@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
+import Card from "./components/Card";
 
 function App() {
   const [value, setValue] = useState("");
@@ -39,6 +40,7 @@ function App() {
       <Button primary onClick={getData}>
         Get recipes
       </Button>
+      <Card></Card>
     </div>
   );
 }
