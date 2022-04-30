@@ -1,25 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { StyledCard, StyledContent, StyledImage } from "./styles";
+// import React from "react";
+// import PropTypes from "prop-types";
 
-const Card = (props) => {
-  return (
-    <StyledCard href={props.link} {...props}>
-      <StyledImage src={props.image} alt="" />
-      <StyledContent>
-        <h3>{props.title}</h3>
-        <p>{props.text}</p>
-        <p href={props.link} {...props}></p>
-      </StyledContent>
-    </StyledCard>
-  );
-};
+// const Card = (yourName, age) => {
+//   return (
+//     <div>
+//       <h2>{yourName}</h2>
+//       <h3>{age}</h3>
+//     </div>
+//   );
+// };
 
-Card.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  text: PropTypes.string,
-  link: PropTypes.string,
-};
+// Card.propTypes = {
+//   yourName: PropTypes.string,
+//   age: PropTypes.number,
+// };
 
-export default Card;
+// export default Card;

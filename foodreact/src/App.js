@@ -1,68 +1,48 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Button from "./components/Button";
-import Card from "./components/Card";
+import Title from "./components/Text";
+// import Card from "./components/Card";
 
 function App() {
-  const [value, setValue] = useState("");
-  const [items, setItems] = useState(null);
-
-  const save = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setValue(e.target.value);
+    setValue(name);
   };
 
-  const getData = () => {
-    fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}&ingredients=${value}`
-    )
+  const [name, setName] = useState("");
+  const [state, setState] = useState([]);
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    const url = `https://api.agify.io/?name=${name}`;
+
+    fetch(url)
       .then((res) => res.json())
-      .then((json) => {
-        setItems(json);
+      .then((data) => {
+        setState(data);
       });
-    .then((
-      var string = JSON.stringify(items);
-      var parsed = JSON.parse(string);
-      console.log(parsed);
-    )
-     
-    );
-  };
-  // for (const [key, value] of Object.entries(items)) {
-  //   console.log(`${key}: ${value}`);
-  // }
-
-  // const map = Object.entries(items);
-
-  // var response = JSON.map(items);
-  // console.log(response);
-
-  // Object.keys(items).forEach(function (key) {
-  //   console.log("Key : " + key + ", Value : " + items[key]);
-  // });
-
-  // items.forEach((obj) => {
-  //   Object.entries(obj).forEach(([key, value]) => {
-  //     console.log(`${key} ${value}`);
-  //   });
-  //   console.log("-------------------");
-  // });
+  }, [value]);
 
   return (
     <div className="App">
-      <h1> Fetch data from an api in react </h1>
-      
-      <Button value="hummus" onClick={save}>
-        Hummus
-      </Button>
-      <Button value="chocolate" onClick={save}>
-        Chocolate
-      </Button>
-      <Button primary onClick={getData}>
-        Get recipes
-      </Button>
-      <Card></Card>
+      <Title>Input your name here: </Title>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+        <Button>Show me my age!</Button>
+      </form>
+      {/* <Card yourName={state.name} age={state.age}></Card> */}
+      <div>
+        <h3>Wow {state.name}!</h3>
+        <p>Your age is: {state.age}</p>
+      </div>
     </div>
   );
 }
