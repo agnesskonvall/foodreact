@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const url = `https://api.agify.io/?name=${name}`;
 
-    if (value != "") {
+    if (value !== "") {
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
@@ -29,8 +29,8 @@ function App() {
   }, [value]);
 
   const result = Object.values(state);
-
-  console.log(result);
+  const addedName = result[0];
+  const age = result[1];
 
   return (
     <div className="App">
@@ -46,7 +46,7 @@ function App() {
 
         <Button>Show me my age!</Button>
       </form>
-      {result.length > 0 && <Card yourName={result[0]} age={result[1]}></Card>}
+      {result.length > 0 && <Card yourName={addedName} age={age}></Card>}
     </div>
   );
 }
