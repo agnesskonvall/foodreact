@@ -22,6 +22,4 @@ class Button extends React.Component {
   }
 }
 
-const styledButton = ButtonStyled;
-
 export default Button;

@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Button from "./components/Button";
-import Title from "./components/Title";
 import Card from "./components/Card";
 
 function App() {
