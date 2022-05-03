@@ -5,6 +5,7 @@
 body {
   background-color: rgb(208, 231, 252);
   margin: 0;
+  font-family: monospace;
 }
 
 .App-logo {

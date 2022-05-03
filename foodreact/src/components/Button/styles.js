@@ -15,7 +15,7 @@ export const ButtonStyled = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: goldenrod;
+    background-color: hotpink;
   }
 
   &:active {

@@ -3,20 +3,23 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Button from "./components/Button";
 import Card from "./components/Card";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    setValue(value);
+    setValue(name);
     setChange(true);
   };
 
   const [change, setChange] = useState(false);
   const [state, setState] = useState([]);
   const [value, setValue] = useState("");
+  const [name, setName] = useState("");
 
   useEffect(() => {
-    const url = `https://api.agify.io/?name=${value}`;
+    const url = `https://api.agify.io/?name=${name}`;
 
     if (value !== "") {
       fetch(url)
@@ -34,6 +37,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* <Header></Header> */}
       {change ? <h1>You're this old!</h1> : <h1>How old are you?</h1>}
       <h3>Input your name here: </h3>
       <form onSubmit={handleSubmit}>
@@ -41,13 +45,14 @@ function App() {
           type="text"
           name="name"
           id="name"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         ></input>
 
         <Button>Show me my age!</Button>
       </form>
       {result.length > 0 && <Card yourName={addedName} age={age}></Card>}
+      {/* <Footer></Footer> */}
     </div>
   );
 }
