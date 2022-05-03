@@ -3,13 +3,12 @@ import PropTypes from "prop-types";
 
 function Card({ yourName, age }) {
   const renderRetired = () => {
-    if (age > 60) {
+    if (age >= 60) {
       return <h2>You're old enough to retire!</h2>;
     } else {
       return <h2>You still have a few more years left to sell your soul!</h2>;
     }
   };
-  console.log(age);
   return (
     <div>
       <div>
