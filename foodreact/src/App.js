@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Button from "./components/Button";
 import Title from "./components/Text";
-// import Card from "./components/Card";
+import Card from "./components/Card";
 
 function App() {
   const handleSubmit = (e) => {
@@ -18,12 +18,19 @@ function App() {
   useEffect(() => {
     const url = `https://api.agify.io/?name=${name}`;
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setState(data);
-      });
+    if (value != "") {
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setState(data);
+        });
+    }
   }, [value]);
+
+  const result = Object.values(state);
+
+  console.log(result);
 
   return (
     <div className="App">
@@ -36,13 +43,10 @@ function App() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         ></input>
+
         <Button>Show me my age!</Button>
       </form>
-      {/* <Card yourName={state.name} age={state.age}></Card> */}
-      <div>
-        <h3>Wow {state.name}!</h3>
-        <p>Your age is: {state.age}</p>
-      </div>
+      {result.length > 0 && <Card yourName={result[0]} age={result[1]}></Card>}
     </div>
   );
 }
