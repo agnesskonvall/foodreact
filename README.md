@@ -4,7 +4,7 @@
 
 enter your name and see what age you actually are!
 
-this is a react app made using the (https://agify.io/) api.
+this is a react app made using the [Agify](https://agify.io/) api.
 
 ## Installation
 
