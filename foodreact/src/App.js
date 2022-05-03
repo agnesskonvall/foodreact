@@ -7,17 +7,16 @@ import Card from "./components/Card";
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    setValue(name);
+    setValue(value);
     setChange(true);
   };
 
-  const [name, setName] = useState("");
   const [change, setChange] = useState(false);
   const [state, setState] = useState([]);
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    const url = `https://api.agify.io/?name=${name}`;
+    const url = `https://api.agify.io/?name=${value}`;
 
     if (value !== "") {
       fetch(url)
@@ -42,8 +41,8 @@ function App() {
           type="text"
           name="name"
           id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         ></input>
 
         <Button>Show me my age!</Button>
