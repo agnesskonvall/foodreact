@@ -10,16 +10,13 @@ class Button extends React.Component {
   render() {
     return (
       <div>
-        <Button
+        <ButtonStyled
           onClick={() => {
             this.setState({ change: !this.state.change });
           }}
-        ></Button>
-        {this.state.change ? (
-          <h1>How old are you?</h1>
-        ) : (
-          <h1>You're this old!</h1>
-        )}
+        >
+          {this.props.children}
+        </ButtonStyled>
       </div>
     );
   }

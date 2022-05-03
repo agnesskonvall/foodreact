@@ -9,11 +9,11 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setValue(name);
-    setChange(change);
+    setChange(true);
   };
 
   const [name, setName] = useState("");
-  const [change, setChange] = useState("");
+  const [change, setChange] = useState(false);
   const [state, setState] = useState([]);
   const [value, setValue] = useState("");
 
@@ -36,12 +36,8 @@ function App() {
 
   return (
     <div className="App">
-      {this.state.change ? (
-        <h1>How old are you?</h1>
-      ) : (
-        <h1>You're this old!</h1>
-      )}
-      <Title>Input your name here: </Title>
+      {change ? <h1>You're this old!</h1> : <h1>How old are you?</h1>}
+      <h3>Input your name here: </h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
