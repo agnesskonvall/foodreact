@@ -1,8 +1,7 @@
-// import PropTypes from "prop-types";
 import React from "react";
-import { ButtonStyled } from "./styles";
+import Button from "../Button";
 
-class Button extends React.Component {
+class Title extends React.Component {
   constructor(props) {
     super(props);
     this.state = { change: true };
@@ -14,7 +13,9 @@ class Button extends React.Component {
           onClick={() => {
             this.setState({ change: !this.state.change });
           }}
-        ></Button>
+        >
+          {" "}
+        </Button>
         {this.state.change ? (
           <h1>How old are you?</h1>
         ) : (
@@ -25,6 +26,4 @@ class Button extends React.Component {
   }
 }
 
-const styledButton = ButtonStyled;
-
-export default Button;
+export default Title;
