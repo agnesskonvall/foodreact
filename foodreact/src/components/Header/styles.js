@@ -12,4 +12,8 @@ export const TitleStyled = styled.h1`
   margin-top: 1rem;
   font-size: 3rem;
   color: hotpink;
+
+  @media (max-width: 380px) {
+    font-size: 2.5rem;
+  }
 `;

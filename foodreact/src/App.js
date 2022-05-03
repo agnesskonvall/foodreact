@@ -37,8 +37,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header></Header> */}
-      {change ? <h1>You're this old!</h1> : <h1>How old are you?</h1>}
+      <Header></Header>
+      {/* {change ? <h1>You're this old!</h1> : <h1>How old are you?</h1>} */}
       <h3>Input your name here: </h3>
       <form onSubmit={handleSubmit}>
         <input
@@ -48,11 +48,11 @@ function App() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         ></input>
-
         <Button>Show me my age!</Button>
       </form>
+      {change ? <h2>You're this old!</h2> : <h2>How old are you?</h2>}
       {result.length > 0 && <Card yourName={addedName} age={age}></Card>}
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 }

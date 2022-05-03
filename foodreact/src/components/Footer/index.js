@@ -4,7 +4,8 @@ import { FooterStyled } from "./styles";
 const Footer = () => {
   return (
     <FooterStyled>
-      <p>Helloooo</p>
+      <p>Agnes Skönvall</p>
+      <p>Alice Nyberg</p>
     </FooterStyled>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { CardResult, CardStyled } from "./styles";
 
 function Card({ yourName, age }) {
   const renderRetired = () => {
@@ -10,12 +11,14 @@ function Card({ yourName, age }) {
     }
   };
   return (
-    <div>
-      <div>
-        <h2>{yourName}</h2>
-        <h3>{age}</h3>
-      </div>
-      {renderRetired()}
+    <div className="card-div">
+      <CardStyled>
+        <CardResult>
+          <h2>{yourName}</h2>
+          <h2>{age} years</h2>
+        </CardResult>
+        {renderRetired()}
+      </CardStyled>
     </div>
   );
 }

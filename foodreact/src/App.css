@@ -8,6 +8,19 @@ body {
   font-family: monospace;
 }
 
+input[type="text"] {
+  padding: 10px 20px;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 2px solid hotpink;
+  border-radius: 10px;
+}
+
+.card-div {
+  display: flex;
+  justify-content: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
